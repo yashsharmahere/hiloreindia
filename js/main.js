@@ -40,21 +40,52 @@ window.addEventListener('resize', drawRuler);
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', function () {
-      var open = links.style.display === 'flex';
-      links.style.display = open ? 'none' : 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '64px';
-      links.style.left = '0';
-      links.style.right = '0';
-      links.style.background = '#EAE6DC';
-      links.style.padding = '20px';
-      links.style.borderBottom = '1px solid #C9C4B4';
-      links.style.gap = '18px';
-    });
+  if (!toggle || !links) return;
+
+  // Full-screen backdrop so the menu feels like a drawer
+  var backdrop = document.createElement('div');
+  backdrop.style.cssText = [
+    'position:fixed', 'inset:0', 'background:rgba(28,26,23,0.45)',
+    'z-index:39', 'display:none', 'backdrop-filter:blur(2px)'
+  ].join(';');
+  document.body.appendChild(backdrop);
+
+  function closeNav() {
+    links.style.display = 'none';
+    backdrop.style.display = 'none';
+    toggle.textContent = 'Menu';
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   }
+
+  function openNav() {
+    links.style.cssText = [
+      'display:flex', 'flex-direction:column',
+      'position:fixed', 'top:64px', 'left:0', 'right:0',
+      'background:#EAE6DC', 'padding:20px 24px 28px',
+      'border-bottom:1px solid #C9C4B4',
+      'gap:4px', 'z-index:50',
+      'box-shadow:0 12px 32px rgba(28,26,23,0.14)'
+    ].join(';');
+    backdrop.style.display = 'block';
+    toggle.textContent = 'Close';
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  toggle.addEventListener('click', function () {
+    if (links.style.display === 'flex') { closeNav(); } else { openNav(); }
+  });
+
+  backdrop.addEventListener('click', closeNav);
+
+  links.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeNav);
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 980) closeNav();
+  });
 });
 
 // Contact form -> Formspree (submits directly, no email client redirect)
