@@ -3,6 +3,8 @@
 Marketing site for **Hilore India**, a garment export house (est. 2007, Ghaziabad).
 Plain static HTML/CSS/JS — no build step, no framework, no backend.
 
+Deployed on Vercel, tracking `main`.
+
 ## Structure
 
 ```
