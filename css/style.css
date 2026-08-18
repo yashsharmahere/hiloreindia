@@ -481,12 +481,21 @@ section:last-of-type { border-bottom: none; }
 }
 
 .contact-form button:hover { background: var(--blue-deep); }
+.contact-form button:disabled { opacity: 0.6; cursor: default; }
 
 .form-note {
   font-size: 12px;
   color: var(--muted);
   margin-top: -2px;
 }
+
+.form-status {
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+
+.form-status-ok { color: var(--blue); }
+.form-status-error { color: var(--spec-red); }
 
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; }

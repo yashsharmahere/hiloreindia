@@ -209,12 +209,14 @@
                 <span>info@hiloreindia.com</span>
               </div>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
               <input type="text" name="name" placeholder="Your name" required>
               <input type="email" name="email" placeholder="name@company.com" required>
               <textarea name="message" placeholder="Tell us about your production requirements" required></textarea>
+              <input type="hidden" name="_subject" value="New inquiry — hiloreindia.com">
               <button type="submit">Send message</button>
-              <span class="form-note">Opens your email client to send directly to info@hiloreindia.com.</span>
+              <span class="form-note">We reply within 1–2 business days.</span>
+              <div class="form-status" role="status" aria-live="polite"></div>
             </form>
           </div>
         </div>

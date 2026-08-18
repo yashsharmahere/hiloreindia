@@ -57,21 +57,46 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Contact form -> mailto (no backend needed)
+// Contact form -> Formspree (submits directly, no email client redirect)
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.querySelector('.contact-form');
   if (!form) return;
+  var status = form.querySelector('.form-status');
+  var button = form.querySelector('button[type="submit"]');
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.querySelector('[name="name"]').value.trim();
-    var email = form.querySelector('[name="email"]').value.trim();
-    var message = form.querySelector('[name="message"]').value.trim();
-    if (!name || !email || !message) {
-      alert('Please fill in all fields before sending.');
-      return;
-    }
-    var subject = encodeURIComponent('Inquiry from ' + name + ' — hiloreindia.com');
-    var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-    window.location.href = 'mailto:info@hiloreindia.com?subject=' + subject + '&body=' + body;
+    status.textContent = '';
+    status.className = 'form-status';
+    button.disabled = true;
+    button.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          form.reset();
+          status.textContent = 'Thanks — your message has been sent. We\'ll be in touch shortly.';
+          status.className = 'form-status form-status-ok';
+        } else {
+          return response.json().then(function (data) {
+            var msg = (data && data.errors && data.errors.length)
+              ? data.errors.map(function (err) { return err.message; }).join(', ')
+              : 'Something went wrong. Please try again or email info@hiloreindia.com directly.';
+            throw new Error(msg);
+          });
+        }
+      })
+      .catch(function (err) {
+        status.textContent = err.message || 'Something went wrong. Please try again or email info@hiloreindia.com directly.';
+        status.className = 'form-status form-status-error';
+      })
+      .finally(function () {
+        button.disabled = false;
+        button.textContent = 'Send message';
+      });
   });
 });
