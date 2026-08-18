@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function (response) {
         if (response.ok) {
           form.reset();
-          status.textContent = 'Thanks — your message has been sent. We\'ll be in touch shortly.';
+          status.textContent = 'Thanks, your message has been sent. We\'ll be in touch shortly.';
           status.className = 'form-status form-status-ok';
         } else {
           return response.json().then(function (data) {
