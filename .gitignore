@@ -1,0 +1,12 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Vercel
+.vercel/
+
+# Node (not used, but safe)
+node_modules/
