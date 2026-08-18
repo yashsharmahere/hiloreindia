@@ -249,6 +249,36 @@ section:last-of-type { border-bottom: none; }
   color: var(--ink);
 }
 
+/* ---------- Instagram ---------- */
+.instagram-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--blue-tint);
+  border: 1px solid var(--paper-line);
+  border-radius: 4px;
+  padding: 32px;
+}
+
+.instagram-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.instagram-copy { flex: 1; min-width: 240px; }
+
+.instagram-handle {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.instagram-copy p { color: var(--muted); }
+
 /* ---------- Legacy / establishment ---------- */
 .legacy-grid {
   display: grid;
