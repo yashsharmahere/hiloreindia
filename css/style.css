@@ -253,16 +253,14 @@ section[id] { scroll-margin-top: 72px; }
   object-position: center top;
 }
 
-/* Portrait viewports: keep the full-bleed overlay but shift the crop right so
-   the standing model's face stays clear above the bottom-heavy text gradient. */
+/* Portrait viewports: full-bleed overlay with the crop framing the seated
+   model on the right (standing model out of frame), text over the blue wall. */
 @media (max-aspect-ratio: 1/1) {
-  .hero-bg img { object-position: 88% top; }
+  .hero-bg img { object-position: 58% top; }
   .hero-bg::after {
-    background: linear-gradient(to top,
-      rgba(4,10,20,0.92) 0%,
-      rgba(4,10,20,0.55) 42%,
-      rgba(4,10,20,0.12) 70%,
-      rgba(4,10,20,0.0) 100%);
+    background:
+      linear-gradient(to right, rgba(4,10,20,0.88) 0%, rgba(4,10,20,0.5) 45%, rgba(4,10,20,0.05) 78%, rgba(4,10,20,0.0) 100%),
+      linear-gradient(to top,   rgba(4,10,20,0.9) 0%, rgba(4,10,20,0.4) 34%, rgba(4,10,20,0.0) 62%);
   }
 }
 
