@@ -262,6 +262,9 @@ section[id] { scroll-margin-top: 72px; }
       linear-gradient(to right, rgba(4,10,20,0.88) 0%, rgba(4,10,20,0.5) 45%, rgba(4,10,20,0.05) 78%, rgba(4,10,20,0.0) 100%),
       linear-gradient(to top,   rgba(4,10,20,0.9) 0%, rgba(4,10,20,0.4) 34%, rgba(4,10,20,0.0) 62%);
   }
+  /* Text to the top, marks bar to the bottom — no dead space above the copy */
+  .hero { justify-content: space-between; }
+  .hero-content { padding-top: 92px; padding-bottom: 24px; }
 }
 
 .hero-bg::after {
