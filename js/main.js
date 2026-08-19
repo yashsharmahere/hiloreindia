@@ -1,3 +1,46 @@
+// Transparent header over hero: switches to paper bg once scrolled past hero
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  function syncHeader() {
+    if (window.scrollY < 60) {
+      header.classList.add('hero-mode');
+    } else {
+      header.classList.remove('hero-mode');
+    }
+  }
+  syncHeader();
+  window.addEventListener('scroll', syncHeader, { passive: true });
+}());
+
+// Hero entrance: body.is-loaded triggers CSS animations
+window.addEventListener('load', function () {
+  setTimeout(function () { document.body.classList.add('is-loaded'); }, 60);
+});
+
+// Scroll reveal: IntersectionObserver adds .in-view to [data-reveal] elements
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: just show everything
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      el.classList.add('in-view');
+    });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    observer.observe(el);
+  });
+}());
+
 // Draws tick marks down the ruler margin, spaced by pixels not fixed count,
 // so it always fills the page height correctly.
 function drawRuler() {

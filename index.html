@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -41,35 +41,31 @@
     </header>
 
     <main>
-      <!-- Hero -->
+      <!-- Hero: full-bleed -->
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow">Est. 2007 &middot; Ghaziabad, India</span>
-            <h1>Garments built to spec,<br>shipped on time.</h1>
-            <p class="hero-lede">A full-package export house for womenswear, menswear, kidswear and accessories. We read a tech pack the way you wrote it, and we ship the garment you approved.</p>
-            <div class="btn-row">
-              <a href="#contact" class="btn btn-primary">Request a quote</a>
-              <a href="#services" class="btn btn-outline">See what we make</a>
-            </div>
+        <div class="hero-bg">
+          <img src="images/hero-bg.jpg" alt="" role="presentation" width="1354" height="2048" fetchpriority="high">
+        </div>
+        <div class="hero-content container">
+          <span class="eyebrow reveal">Est. 2007 &middot; Ghaziabad, India</span>
+          <h1>
+            <span class="reveal">Garments built to spec,</span>
+            <span class="reveal">shipped on time.</span>
+          </h1>
+          <p class="hero-lede reveal">A full-package export house for womenswear, menswear, kidswear and accessories. We read a tech pack the way you wrote it, and we ship the garment you approved.</p>
+          <div class="btn-row reveal">
+            <a href="#contact" class="btn btn-hero-primary">Request a quote</a>
+            <a href="#services" class="btn btn-hero-outline">See what we make</a>
+          </div>
+        </div>
+        <div class="hero-marks-bar">
+          <div class="container">
             <ul class="hero-marks">
               <li><span>MOQ</span>50&ndash;5,000 pcs</li>
               <li><span>Sampling</span>10&ndash;14 days</li>
               <li><span>Inspection</span>100% pre-shipment</li>
+              <li><span>Export</span>FOB / CIF</li>
             </ul>
-          </div>
-
-          <div class="hero-art">
-            <figure class="hero-shot">
-              <img src="images/hero-primary.jpg" alt="Hand-embroidered womenswear tunic produced by Hilore India" width="1200" height="1500">
-              <svg class="crop-mark tl" viewBox="0 0 18 18" aria-hidden="true"><line x1="0" y1="9" x2="18" y2="9"/><line x1="9" y1="0" x2="9" y2="18"/></svg>
-              <svg class="crop-mark br" viewBox="0 0 18 18" aria-hidden="true"><line x1="0" y1="9" x2="18" y2="9"/><line x1="9" y1="0" x2="9" y2="18"/></svg>
-              <figcaption class="shot-note">Hand-embroidered tunic &middot; sampled &amp; graded in-house</figcaption>
-            </figure>
-            <figure class="hero-inset">
-              <img src="images/hero-tag.jpg" alt="Hilore India branded hang tag on a finished garment" width="760" height="760" loading="lazy">
-            </figure>
-            <span class="hero-stamp">HILORE&nbsp;/&nbsp;EST.&nbsp;2007</span>
           </div>
         </div>
       </section>
@@ -101,10 +97,10 @@
       <!-- Legacy -->
       <section class="legacy">
         <div class="container legacy-grid">
-          <div class="legacy-photo">
+          <div class="legacy-photo" data-reveal>
             <img src="images/legacy-craft.jpg" alt="Detail of embroidered garment craftsmanship at Hilore India" loading="lazy">
           </div>
-          <div class="legacy-copy">
+          <div class="legacy-copy" data-reveal data-delay="1">
             <span class="eyebrow">A legacy of craft and capability</span>
             <h2>Eighteen years of reading tech packs correctly.</h2>
             <p>Established in 2007, Hilore India has grown into a garment export house with deep technical command of production across every category we serve. Construction, fit, finish, and the details buyers notice on the third repeat order, not just the first.</p>
@@ -115,34 +111,34 @@
       <!-- Categories -->
       <section id="services">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head" data-reveal>
             <span class="eyebrow">What we produce</span>
             <h2>Four categories, one standard of finish</h2>
           </div>
           <div class="category-grid">
             <a href="pages/mens-wear.html" class="category-card">
-              <img src="images/category-mens.png" alt="Mens wear collection" loading="lazy">
+              <img src="images/cat-menswear.jpg" alt="Mens wear collection" loading="lazy">
               <div class="category-overlay">
                 <div class="cat-name">Mens wear</div>
                 <div class="cat-link">View collection <span aria-hidden="true">&rarr;</span></div>
               </div>
             </a>
             <a href="pages/womens-wear.html" class="category-card">
-              <img src="images/category-womens.png" alt="Womens wear collection" loading="lazy">
+              <img src="images/cat-womenswear.jpg" alt="Womens wear collection" loading="lazy">
               <div class="category-overlay">
                 <div class="cat-name">Womens wear</div>
                 <div class="cat-link">View collection <span aria-hidden="true">&rarr;</span></div>
               </div>
             </a>
             <a href="pages/kids-wear.html" class="category-card">
-              <img src="images/category-kids.png" alt="Kids wear collection" loading="lazy">
+              <img src="images/cat-kidswear.jpg" alt="Kids wear collection" loading="lazy">
               <div class="category-overlay">
                 <div class="cat-name">Kids wear</div>
                 <div class="cat-link">View collection <span aria-hidden="true">&rarr;</span></div>
               </div>
             </a>
             <a href="pages/accessories.html" class="category-card">
-              <img src="images/category-accessories.png" alt="Accessories collection" loading="lazy" style="object-position: 30% center;">
+              <img src="images/cat-accessories.jpg" alt="Accessories collection" loading="lazy">
               <div class="category-overlay">
                 <div class="cat-name">Accessories</div>
                 <div class="cat-link">View collection <span aria-hidden="true">&rarr;</span></div>
@@ -155,7 +151,7 @@
       <!-- Process -->
       <section id="process" class="process">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head" data-reveal>
             <span class="eyebrow">How we work</span>
             <h2>From tech pack to container</h2>
             <p class="section-sub">Five stages, each with a named owner and a date you can hold us to. No stage starts until the previous one is signed off in writing.</p>
@@ -241,7 +237,7 @@
             <figcaption class="craft-label">Hand embroidery</figcaption>
           </figure>
           <figure class="craft-item">
-            <img src="images/machine-embroidery.png" alt="Machine embroidery detail" loading="lazy">
+            <img src="images/craft-machine.jpg" alt="Machine embroidery detail" loading="lazy">
             <figcaption class="craft-label">Machine embroidery</figcaption>
           </figure>
         </div>
@@ -415,6 +411,6 @@
   </div>
 </div>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
