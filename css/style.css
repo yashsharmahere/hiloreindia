@@ -253,6 +253,12 @@ section[id] { scroll-margin-top: 72px; }
   object-position: center top;
 }
 
+/* Portrait viewports: the wide image crops its sides, clipping the models
+   on the right. Shift the crop so the standing model stays in frame. */
+@media (max-aspect-ratio: 1/1) {
+  .hero-bg img { object-position: 80% top; }
+}
+
 .hero-bg::after {
   content: '';
   position: absolute;
