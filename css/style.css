@@ -83,27 +83,18 @@ h1, h2, h3, .display {
 
 @media (max-width: 900px) { .ruler { display: none; } }
 
-/* ---------- Logo lockup ---------- */
-.logo { display: flex; align-items: center; gap: 10px; }
+/* ---------- Logo lockup (official brand wordmark, colour via mask) ---------- */
+.logo { display: inline-flex; align-items: center; }
 
-.logo-mark { width: 34px; height: 34px; flex-shrink: 0; }
-
-.logo-text { display: flex; flex-direction: column; line-height: 1; }
-
-.logo-name {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 0.13em;
-  color: var(--blue);
-}
-
-.logo-sub {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.42em;
-  color: var(--muted);
-  margin-top: 4px;
+.logo-lockup {
+  display: block;
+  width: 116px;                 /* 88:31 aspect */
+  height: 40px;
+  color: var(--blue);           /* drives the mask fill */
+  background-color: currentColor;
+  -webkit-mask: url(../images/logo-wordmark.svg) no-repeat center / contain;
+  mask: url(../images/logo-wordmark.svg) no-repeat center / contain;
+  transition: color 0.3s ease;
 }
 
 /* ---------- Header ---------- */
@@ -397,8 +388,7 @@ section[id] { scroll-margin-top: 72px; }
   border-bottom-color: rgba(255,255,255,0.10);
 }
 
-.site-header.hero-mode .logo-name { color: #fff; }
-.site-header.hero-mode .logo-sub { color: rgba(255,255,255,0.50); }
+.site-header.hero-mode .logo-lockup { color: #fff; }
 
 .site-header.hero-mode .nav-links a {
   color: rgba(255,255,255,0.82);
@@ -1065,9 +1055,8 @@ section:last-of-type { border-bottom: none; }
   margin-bottom: 44px;
 }
 
-.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.footer-logo .logo-name { color: var(--paper); }
-.footer-logo .logo-sub { color: #8A8676; }
+.footer-logo { display: flex; align-items: center; margin-bottom: 16px; }
+.footer-logo .logo-lockup { color: var(--paper); width: 128px; height: 44px; }
 
 .footer-brand p { font-size: 14px; color: #A8A392; max-width: 320px; line-height: 1.62; }
 
