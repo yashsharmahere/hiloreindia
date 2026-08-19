@@ -125,9 +125,10 @@ h1, h2, h3, .display {
   .site-header { left: 0; }
 }
 
-/* compensate for fixed header: push all page content down */
-.ruler-main > .site-header + * { margin-top: 0; }
-.ruler-main { padding-top: 64px; }
+/* hero sits behind the fixed header (starts at top:0);
+   all other sections need a scroll-margin so anchor links land below the header */
+.ruler-main { padding-top: 0; }
+section[id] { scroll-margin-top: 72px; }
 
 .site-header .container {
   display: flex;
@@ -266,6 +267,7 @@ h1, h2, h3, .display {
   z-index: 1;
   padding-bottom: clamp(32px, 4vw, 52px);
   padding-top: clamp(80px, 12vw, 140px);
+  max-width: 52%;
 }
 
 .hero-content .eyebrow {
@@ -1089,8 +1091,8 @@ section:last-of-type { border-bottom: none; }
   section { padding: clamp(44px, 10vw, 72px) 0; }
 
   /* Hero */
-  .hero { padding: 32px 0 40px; }
   .hero-grid { gap: 28px; }
+  .hero-content { max-width: 100%; }
 
   .hero h1 {
     font-size: clamp(30px, 8.5vw, 42px);
