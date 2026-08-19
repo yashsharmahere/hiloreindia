@@ -267,6 +267,8 @@ section[id] { scroll-margin-top: 72px; }
   z-index: 1;
   padding-bottom: clamp(32px, 4vw, 52px);
   padding-top: clamp(80px, 12vw, 140px);
+  margin-left: 0;      /* pin to left edge — override container's margin: 0 auto */
+  margin-right: auto;
 }
 
 /* Pin text to the left half — keep the container centred at full width */
