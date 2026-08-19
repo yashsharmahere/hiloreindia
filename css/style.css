@@ -253,10 +253,29 @@ section[id] { scroll-margin-top: 72px; }
   object-position: center top;
 }
 
-/* Portrait viewports: the wide image crops its sides, clipping the models
-   on the right. Shift the crop so the standing model stays in frame. */
+/* Portrait viewports: the wide image can't show text + models without the
+   text landing on a model. Stack it instead — image becomes a top banner
+   framing the seated model, text sits below on the dark base. */
 @media (max-aspect-ratio: 1/1) {
-  .hero-bg img { object-position: 80% top; }
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background: #040a14;
+  }
+  .hero-bg {
+    position: relative;
+    inset: auto;
+    height: 54vh;
+  }
+  .hero-bg img { object-position: 48% top; }
+  .hero-bg::after {
+    background: linear-gradient(to bottom,
+      rgba(4,10,20,0.0) 55%,
+      rgba(4,10,20,0.65) 82%,
+      #040a14 100%);
+  }
+  .hero-content { padding-top: 30px; padding-bottom: 20px; }
 }
 
 .hero-bg::after {
