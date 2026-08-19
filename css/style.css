@@ -267,7 +267,14 @@ section[id] { scroll-margin-top: 72px; }
   z-index: 1;
   padding-bottom: clamp(32px, 4vw, 52px);
   padding-top: clamp(80px, 12vw, 140px);
-  max-width: 52%;
+}
+
+/* Pin text to the left half — keep the container centred at full width */
+.hero-content .eyebrow,
+.hero h1,
+.hero-lede,
+.hero .btn-row {
+  max-width: 520px;
 }
 
 .hero-content .eyebrow {
@@ -1092,7 +1099,10 @@ section:last-of-type { border-bottom: none; }
 
   /* Hero */
   .hero-grid { gap: 28px; }
-  .hero-content { max-width: 100%; }
+  .hero-content .eyebrow,
+  .hero h1,
+  .hero-lede,
+  .hero .btn-row { max-width: 100%; }
 
   .hero h1 {
     font-size: clamp(30px, 8.5vw, 42px);
